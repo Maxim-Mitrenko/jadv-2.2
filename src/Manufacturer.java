@@ -1,6 +1,6 @@
 public class Manufacturer {
 
-    private static final long SEND_TIME = 5000;
+    private static final long SEND_TIME = 1000;
     private String name;
 
     public Manufacturer(String name) {

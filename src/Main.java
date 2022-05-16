@@ -1,7 +1,7 @@
 public class Main {
 
     private static final int CAR_COUNT_PROGRAM_WORK = 10;
-    private static final long WAIT = 1500;
+    private static final long WAIT = 1000;
 
     public static void main(String[] args) {
         final Manufacturer manufacturer = new Manufacturer("Toyota");

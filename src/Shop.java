@@ -6,10 +6,10 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Shop {
 
-    private static final long BUY = 3000;
-    Lock lock = new ReentrantLock();
-    Condition condition = lock.newCondition();
-    List<Car> cars = new ArrayList<>();
+    private static final long BUY = 500;
+    private Lock lock = new ReentrantLock();
+    private Condition condition = lock.newCondition();
+    private List<Car> cars = new ArrayList<>();
 
     public Car sellCar() {
         Car car = null;
@@ -32,7 +32,12 @@ public class Shop {
     }
 
     public void addCar(Car car) {
-        cars.add(car);
-        condition.signal();
+        try {
+            lock.lock();
+            cars.add(car);
+            condition.signal();
+        } finally {
+            lock.unlock();
+        }
     }
 }
